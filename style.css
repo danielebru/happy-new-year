@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh; 
+    background-color: #333;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: linear-gradient(to right, #333 1px, transparent 1px), 
+    linear-gradient(to bottom, #333 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.caixa {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.caixa::before{
+    content: 'Tchauzinho!';
+    position: absolute;
+    top: -0.75em;
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 2em;
+    transition: 1s;;
+
+
+}
+
+.caixa:hover::before{
+    transform: translateY(-100px); 
+    opacity: 0;
+    filter: blur(30px);
+}
+
+.caixa::after{
+    content: 'Feliz Ano Novo!';
+    position: absolute;
+    left: 0;
+    top: -0.75em;
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 2em;
+    transition: 1s;;
+
+    transform: translateY(100px); 
+    opacity: 0;
+    filter: blur(30px);
+
+
+}
+
+
+.caixa:hover::after{
+    
+    transform: translateY(0px); 
+    opacity: 1;
+    filter: blur(0px);
+
+}
+
+.caixa span {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 10em;
+    font-weight: bold;
+    position: relative;
+    transition: 0.5s ease-in-out;
+}
+
+.caixa span:last-child {
+    color: #ff236e;
+    z-index: 2;
+}
+
+.caixa span:nth-child(4) {
+    color: #ff236e;
+    z-index: 1;
+    transition: transform 0.8s ease, opacity 0.8s ease, filter 0.8s ease;
+}
+
+.caixa span.hidden {
+    transform: rotate(45deg) translateY(-200px);
+    opacity: 0;
+    filter: blur(30px);
+}
+
+.caixa span:nth-child(5) {
+    color: green;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.caixa:hover span:nth-child(4) {
+    transform: rotate(45deg) translateY(-200px);
+    opacity: 0;
+    filter: blur(30px);
+}
+
+.caixa:hover span:nth-child(5) {
+    opacity: 1;
+    transform: scale(1) translateX(-120px);
+}
